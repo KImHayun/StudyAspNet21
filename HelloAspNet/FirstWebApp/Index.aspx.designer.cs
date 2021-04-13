@@ -24,7 +24,7 @@ namespace FirstWebApp
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        ///  TxtOther 컨트롤입니다.
+        /// TxtOther 컨트롤입니다.
         /// </summary>
         /// <remarks>
         /// 자동 생성 필드입니다.

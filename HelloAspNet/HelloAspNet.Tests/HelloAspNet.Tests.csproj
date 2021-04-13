@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{4782F63A-2B34-4031-A48B-5E3C192EEF75}</ProjectGuid>
+    <ProjectGuid>{06C4DF78-0529-4227-9E37-EB289BB9C110}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>HelloAspNet.Tests</RootNamespace>
@@ -64,7 +64,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\HelloAspNet\HelloAspNet.csproj">
-      <Project>{AF09E60D-A53C-4BA6-B249-716312B141E6}</Project>
+      <Project>{7F71933D-5C8D-432C-8CEB-11C7048B3FE3}</Project>
       <Name>HelloAspNet</Name>
     </ProjectReference>
   </ItemGroup>

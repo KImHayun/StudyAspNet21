@@ -11,13 +11,13 @@
     <form id="form1" runat="server">
         <div>
             <h1>Hello ASP.NET!</h1>
-        </div>
-    	<input id ="TxtOther" name="TxtOther" type="text" runat="server" /> <br />
-			<asp:TextBox ID="TxtDisplay" runat="server"></asp:TextBox>
-			<asp:Button ID="BtnClick" runat="server" OnClick="BtnClick_Click" Text="클릭" />
-			<asp:Label ID="LblResult" runat="server"></asp:Label>
-        
 
+        </div>
+        <input id="TxtOther" name="TxtOther" type="text" runat="server" /><br />
+
+        <asp:TextBox ID="TxtDisplay" runat="server"></asp:TextBox>
+        <asp:Button ID="BtnClick" runat="server" Text="클릭" OnClick="BtnClick_Click" /><br />
+        <asp:Label ID="LblResult" runat="server"></asp:Label>
     </form>
 </body>
 </html>

@@ -16,21 +16,21 @@ namespace FirstWebApp
                 Application.Lock();
                 Application["Cnt"] = 1;
                 Application.UnLock();
-
-            }
-            else
+            } else
             {
                 Application["Cnt"] = (int)Application["Cnt"] + 1;
             }
-            //Session
-            if (Session["Cnt"]==null)
-                {
+
+            // Session
+            if (Session["Cnt"] == null)
+            {
                 Session["Cnt"] = 1;
             }
             else
             {
                 Session["Cnt"] = (int)Session["Cnt"] + 1;
             }
+
             // 출력
             LblApp.Text = $"{Application["Cnt"]}";
             LblSession.Text = $"{Session["Cnt"]}";

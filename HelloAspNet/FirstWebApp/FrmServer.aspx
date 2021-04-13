@@ -9,9 +9,9 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <div>
-            웹폼의 물리경로: <asp:Label ID ="LblServerPath" runat="server"></asp:Label><br />
-           스크립트 루트경로: <asp:Label ID ="LblRequestPath" runat="server"></asp:Label><br />
+        <div>            
+            웹폼의 물리경로 : <asp:Label ID="LblServerPath" runat="server"></asp:Label><br />
+            스크립트 루트경로 : <asp:Label ID="LblRequestPath" runat="server"></asp:Label><br />
         </div>
     </form>
 </body>
