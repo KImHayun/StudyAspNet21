@@ -12,7 +12,7 @@ namespace StateMngWebApp
         protected void Application_Start(object sender, EventArgs e)
         {
             Application["Now"] = DateTime.Now;
-            Application["Visit"] = 0; //접속자 수
+            Application["Visit"] = 0; // 접속자수
         }
 
         protected void Application_End(object sender, EventArgs e)

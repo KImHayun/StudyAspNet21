@@ -11,12 +11,12 @@ namespace StateMngWebApp
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!Page.IsPostBack)
+            if (!Page.IsPostBack) // 최초 로드
             {
-                if(Request.Cookies["UserID"] !=null)
+                if (Request.Cookies["UserID"] != null)
                 {
                     ChkSaveUserID.Checked = true;
-                    TxtUserID.Text = Request.Cookies["UserId"].Value;
+                    TxtUserID.Text = Server.UrlDecode(Request.Cookies["UserID"].Value);
                     Page.SetFocus(TxtPassword);
                 }
             }
@@ -26,17 +26,18 @@ namespace StateMngWebApp
         {
             if (ChkSaveUserID.Checked)
             {
-                HttpCookie cookie = new HttpCookie("UserID", TxtUserID.Text);
-                cookie.Expires = DateTime.Now.AddDays(10); // 10일간 쿠키저장
+                HttpCookie cookie = new HttpCookie("UserID", Server.UrlEncode(TxtUserID.Text));
+                cookie.Expires = DateTime.Now.AddDays(10); // 10일간 쿠키 저장
                 Response.Cookies.Add(cookie);
             }
             else
             {
-                HttpCookie cookie = new HttpCookie("UserID", TxtUserID.Text);
+                HttpCookie cookie = new HttpCookie("UserID", Server.UrlEncode(TxtUserID.Text));
                 cookie.Expires = DateTime.Now.AddDays(01); // 쿠키삭제
                 Response.Cookies.Add(cookie);
             }
-            Response.Write("<script>alert('로그인성공!');</script>");
+
+            Response.Write("<script>alert('로그인 성공!');</script>");
         }
     }
 }

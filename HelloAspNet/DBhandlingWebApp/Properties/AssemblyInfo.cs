@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // 어셈블리의 일반 정보는 다음 특성 집합을 통해 
 // 제어됩니다. 어셈블리와 관련된 정보를 수정하려면
 // 이 특성 값을 변경하십시오.
-[assembly: AssemblyTitle("DBhandlingWebApp")]
+[assembly: AssemblyTitle("DbHandlingWebApp")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("DBhandlingWebApp")]
+[assembly: AssemblyProduct("DbHandlingWebApp")]
 [assembly: AssemblyCopyright("Copyright ©  2021")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // 이 프로젝트가 COM에 노출되는 경우 다음 GUID는 typelib의 ID를 나타냅니다.
-[assembly: Guid("710821c5-6a74-4b60-9f99-b6f1cb0d67b0")]
+[assembly: Guid("a341f8b6-61fe-4bd4-a1ee-10bb1b28fab2")]
 
 // 어셈블리의 버전 정보는 다음 네 가지 값으로 구성됩니다.:
 //

@@ -7,13 +7,15 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Z.Dapper.Plus;
 
-namespace DBhandlingWebApp
+namespace DbHandlingWebApp
 {
-    public partial class FrmMemoList : System.Web.UI.Page
+    public partial class FrmMemoList : Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+
             var connString = ConfigurationManager.ConnectionStrings["ConnString"].ConnectionString;
 
             using (var conn = new SqlConnection(connString))
@@ -30,6 +32,7 @@ namespace DBhandlingWebApp
                 GrvMemoList.DataBind();
             }
         }
+
         protected void BtnSearch_Click(object sender, EventArgs e)
         {
             var connString = ConfigurationManager.ConnectionStrings["ConnString"].ConnectionString;
@@ -46,7 +49,7 @@ namespace DBhandlingWebApp
                 DataSet ds = new DataSet();
                 adapter.Fill(ds, "Memos");
 
-                GrvMemoList.DataSource = ds; 
+                GrvMemoList.DataSource = ds; //.Tables[0].DefaultView;
                 GrvMemoList.DataBind();
             }
         }

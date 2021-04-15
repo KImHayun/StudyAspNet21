@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace DBhandlingWebApp.Models
+namespace DbHandlingWebApp.Models
 {
     public class Maxims
     {

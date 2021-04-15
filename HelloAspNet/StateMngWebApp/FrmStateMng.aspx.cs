@@ -11,7 +11,7 @@ namespace StateMngWebApp
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!Page.IsPostBack) //최초 로드면
+            if (!Page.IsPostBack) // 최초로드면
             {
                 TxtApplication.Text = Application["Now"].ToString(); // $"{}"
                 TxtSession.Text = Session["Now"].ToString();
@@ -33,7 +33,7 @@ namespace StateMngWebApp
             Session["Now"] = TxtSession.Text;
             Cache["Now"] = TxtCache.Text;
             Response.Cookies["Now"].Value = Server.UrlEncode(TxtCookies.Text);
-            ViewState["Now"] = this.TxtViewState.Text;
+            ViewState["Now"] = TxtViewState.Text;
             Response.Redirect("FrmStateShow.aspx");
         }
     }

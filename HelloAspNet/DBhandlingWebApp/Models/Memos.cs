@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace DBhandlingWebApp.Models
+namespace DbHandlingWebApp.Models
 {
-    public class Memos
+    public class Memo
     {
         public int Num { get; set; }
         public string Name { get; set; }

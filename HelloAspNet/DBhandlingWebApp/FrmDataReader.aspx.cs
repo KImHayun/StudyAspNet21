@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace DBhandlingWebApp
+namespace DbHandlingWebApp
 {
     public partial class FrmDataReader : System.Web.UI.Page
     {

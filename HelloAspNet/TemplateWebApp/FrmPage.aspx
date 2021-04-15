@@ -22,20 +22,21 @@
     <form id="form1" runat="server">
         <div class="container">
             <div class="row">
-                <div class="col-md-12" style="background-color: lightyellow;">
+                <div class="col-md-12" style="background-color: lightgoldenrodyellow;">
+                    
                     <nav:Navigator runat="server" ID="UcNavigator" />
                 </div>
             </div>
             <div class="row" style="height: 200px;">
-                <div class="col-md-4" style="background-color: lightpink;">
+                <div class="col-md-4" style="background-color: lavenderblush;">
                     <cat:Category runat="server" />
                 </div>
-                <div class="col-md-8" style="background-color: lightblue">
+                <div class="col-md-8" style="background-color: lavender">
                     <ctl:Catalog runat="server" />
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-12" style="background-color: lavender">
+                <div class="col-md-12" style="background-color: lightcyan">
                     <cpy:Copyright runat="server" ID="UcCopyright" />
                 </div>
             </div>

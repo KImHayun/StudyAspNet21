@@ -7,7 +7,7 @@
 // </자동 생성됨>
 //------------------------------------------------------------------------------
 
-namespace DBhandlingWebApp
+namespace DbHandlingWebApp
 {
 
 
@@ -51,7 +51,7 @@ namespace DBhandlingWebApp
         protected global::System.Web.UI.WebControls.Label LblEmail;
 
         /// <summary>
-        /// LblTitle 컨트롤입니다.
+        ///  LblTitle 컨트롤입니다.
         /// </summary>
         /// <remarks>
         /// 자동 생성 필드입니다.

@@ -7,11 +7,11 @@
 // </자동 생성됨>
 //------------------------------------------------------------------------------
 
-namespace DBhandlingWebApp
+namespace DbHandlingWebApp
 {
 
 
-    public partial class FrmDBConn
+    public partial class FrmDbConn
     {
 
         /// <summary>

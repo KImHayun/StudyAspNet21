@@ -1,15 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Configuration;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 
-namespace DBhandlingWebApp
+namespace DbHandlingWebApp
 {
-    public partial class FrmDBConn : System.Web.UI.Page
+    public partial class FrmDbConn : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -23,11 +18,12 @@ namespace DBhandlingWebApp
             using (SqlConnection conn = new SqlConnection(connString))
             {
                 if (conn.State == System.Data.ConnectionState.Closed) conn.Open();
-                //LblResilt.Text = conn.State.ToString();
 
+                //LblResult.Text = conn.State.ToString();
                 var query = @"Insert Memos 
-                              Values
-                             ( '김하윤', 'HAYUN', '김하윤^-^*', GetDate(), '127.0.0.1')";
+                               Values
+                              ('성명건', 'personar95@naver.com', '성명건입니다.', GetDate(), '127.0.0.1')";
+
                 try
                 {
                     SqlCommand cmd = new SqlCommand(query, conn);
@@ -40,7 +36,6 @@ namespace DBhandlingWebApp
                     LblResult.Text = $"오류 {ex}";
                 }
             }
-
         }
     }
 }

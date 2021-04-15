@@ -7,12 +7,12 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{710821C5-6A74-4B60-9F99-B6F1CB0D67B0}</ProjectGuid>
+    <ProjectGuid>{A341F8B6-61FE-4BD4-A1EE-10BB1B28FAB2}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>DBhandlingWebApp</RootNamespace>
-    <AssemblyName>DBhandlingWebApp</AssemblyName>
+    <RootNamespace>DbHandlingWebApp</RootNamespace>
+    <AssemblyName>DbHandlingWebApp</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
     <Use64BitIISExpress />
@@ -46,7 +46,11 @@
     <Reference Include="Dapper, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Dapper.2.0.78\lib\net461\Dapper.dll</HintPath>
     </Reference>
+    <Reference Include="Dapper.Bulk, Version=1.4.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Dapper.Bulk.1.4.2\lib\net451\Dapper.Bulk.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data.Linq" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -63,6 +67,9 @@
     <Reference Include="System.Configuration" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Z.Dapper.Plus, Version=4.0.1.0, Culture=neutral, PublicKeyToken=59b66d028979105b, processorArchitecture=MSIL">
+      <HintPath>..\packages\Z.Dapper.Plus.4.0.1\lib\net45\Z.Dapper.Plus.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
@@ -71,7 +78,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="FrmDataReader.aspx" />
-    <Content Include="FrmDBConn.aspx" />
+    <Content Include="FrmDbConn.aspx" />
     <Content Include="FrmMemoList.aspx" />
     <Content Include="FrmMemoView.aspx" />
     <Content Include="FrmMemoWrite.aspx" />
@@ -86,12 +93,12 @@
     <Compile Include="FrmDataReader.aspx.designer.cs">
       <DependentUpon>FrmDataReader.aspx</DependentUpon>
     </Compile>
-    <Compile Include="FrmDBConn.aspx.cs">
-      <DependentUpon>FrmDBConn.aspx</DependentUpon>
+    <Compile Include="FrmDbConn.aspx.cs">
+      <DependentUpon>FrmDbConn.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="FrmDBConn.aspx.designer.cs">
-      <DependentUpon>FrmDBConn.aspx</DependentUpon>
+    <Compile Include="FrmDbConn.aspx.designer.cs">
+      <DependentUpon>FrmDbConn.aspx</DependentUpon>
     </Compile>
     <Compile Include="FrmMemoList.aspx.cs">
       <DependentUpon>FrmMemoList.aspx</DependentUpon>
@@ -147,9 +154,9 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>5456</DevelopmentServerPort>
+          <DevelopmentServerPort>4912</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:5456/</IISUrl>
+          <IISUrl>http://localhost:4913/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
