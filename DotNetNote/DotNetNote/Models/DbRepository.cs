@@ -1,4 +1,5 @@
 ﻿using Dapper;
+using Helpers;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -17,19 +18,20 @@ namespace DotNetNote.Models
         {
             con = new SqlConnection(ConfigurationManager.ConnectionStrings[
                 "ConnectionString"].ConnectionString);
+
+            BoardLibrary.Logger.Info("Dapper 리포지토리 생성!");
         }
 
+        #region
         /// <summary>
         /// 데이터 저장, 수정, 답변 공통 메서드
         /// </summary>
         public int SaveOrUpdate(Note n, BoardWriteFormType formType)
         {
             int r = 0;
-
             // 파라미터 추가
             var p = new DynamicParameters();
-
-            //[a] 공통
+            //[a] 공통 Dapper방식
             p.Add("@Name", value: n.Name, dbType: DbType.String);
             p.Add("@Email", value: n.Email, dbType: DbType.String);
             p.Add("@Title", value: n.Title, dbType: DbType.String);
@@ -45,18 +47,15 @@ namespace DotNetNote.Models
                 case BoardWriteFormType.Write:
                     //[b] 글쓰기 전용
                     p.Add("@PostIp", value: n.PostIp, dbType: DbType.String);
-
-                    r = con.Execute("WriteNote", p
-                        , commandType: CommandType.StoredProcedure);
+                    //저장프로시저 결과값은 1(저장성공) 또는 0(저장실패)
+                    r = con.Execute("WriteNote", p, commandType: CommandType.StoredProcedure);
                     break;
                 case BoardWriteFormType.Modify:
                     //[b] 수정하기 전용
-                    p.Add("@ModifyIp",
-                        value: n.ModifyIp, dbType: DbType.String);
+                    p.Add("@ModifyIp", value: n.ModifyIp, dbType: DbType.String);
                     p.Add("@Id", value: n.Id, dbType: DbType.Int32);
 
-                    r = con.Execute("ModifyNote", p,
-                        commandType: CommandType.StoredProcedure);
+                    r = con.Execute("ModifyNote", p, commandType: CommandType.StoredProcedure);
                     break;
                 case BoardWriteFormType.Reply:
                     //[b] 답변쓰기 전용
@@ -64,8 +63,7 @@ namespace DotNetNote.Models
                     p.Add("@ParentNum",
                         value: n.ParentNum, dbType: DbType.Int32);
 
-                    r = con.Execute("ReplyNote", p,
-                        commandType: CommandType.StoredProcedure);
+                    r = con.Execute("ReplyNote", p, commandType: CommandType.StoredProcedure);
                     break;
             }
 
@@ -83,7 +81,10 @@ namespace DotNetNote.Models
             }
             catch (System.Exception ex)
             {
-                throw new System.Exception(ex.Message); // 로깅 처리 권장 영역
+                BoardLibrary.Logger.Error($"예외발생: {ex.Message}");
+                //throw new System.Exception(ex.Message); // 로깅 처리 권장 영역
+
+
             }
         }
 
@@ -99,7 +100,7 @@ namespace DotNetNote.Models
             }
             catch (System.Exception ex)
             {
-                throw new System.Exception(ex.Message);
+                BoardLibrary.Logger.Error($"예외발생: {ex.Message}");
             }
             return r;
         }
@@ -115,7 +116,8 @@ namespace DotNetNote.Models
             }
             catch (System.Exception ex)
             {
-                throw new System.Exception(ex.Message);
+
+                BoardLibrary.Logger.Error($"예외발생: {ex.Message}");
             }
         }
 
@@ -133,7 +135,9 @@ namespace DotNetNote.Models
             }
             catch (System.Exception ex)
             {
-                throw new System.Exception(ex.Message);
+
+                BoardLibrary.Logger.Error($"예외발생: {ex.Message}");
+                return null;
             }
         }
 
@@ -155,7 +159,9 @@ namespace DotNetNote.Models
             }
             catch (System.Exception ex)
             {
-                throw new System.Exception(ex.Message);
+
+                BoardLibrary.Logger.Error($"예외발생: {ex.Message}");
+                return -1; //-1은 검색이 안됐단 뜻
             }
         }
 
@@ -169,7 +175,7 @@ namespace DotNetNote.Models
                 return con.Query<int>(
                     "Select Count(*) From Notes").SingleOrDefault();
             }
-            catch (System.Exception)
+            catch (System.Exception ex)
             {
                 return -1;
             }
@@ -202,7 +208,7 @@ namespace DotNetNote.Models
         }
 
         /// <summary>
-        /// 다운 카운트 1 증가
+        /// 파일다운로드 카운트 1 증가
         /// </summary>
         public void UpdateDownCount(string fileName)
         {
@@ -248,7 +254,7 @@ namespace DotNetNote.Models
                 + " Order By Id Desc";
             return con.Query<Note>(sql).ToList();
         }
-
+     
         /// <summary>
         /// 최근 글 리스트
         /// </summary>
@@ -260,6 +266,7 @@ namespace DotNetNote.Models
                 + " Where Category = @Category Order By Id Desc";
             return con.Query<Note>(sql, new { Category = category }).ToList();
         }
+        #endregion
 
         /// <summary>
         /// 최근 글 리스트 전체(최근 글 5개 리스트)
@@ -280,6 +287,80 @@ namespace DotNetNote.Models
                 $"SELECT TOP {numberOfNotes} Id, Title, Name, PostDate "
                 + " FROM Notes Order By Id Desc";
             return con.Query<Note>(sql).ToList();
+
         }
+
+        #region
+        /// <summary>
+        /// 특정 게시물에 댓글 추가
+        /// </summary>
+        public void AddNoteComment(NoteComment model)
+        {
+            // 파라미터 추가
+            var parameters = new DynamicParameters();
+            parameters.Add(
+                "@BoardId", value: model.BoardId, dbType: DbType.Int32);
+            parameters.Add(
+                "@Name", value: model.Name, dbType: DbType.String);
+            parameters.Add(
+                "@Opinion", value: model.Opinion, dbType: DbType.String);
+            parameters.Add(
+                "@Password", value: model.Password, dbType: DbType.String);
+
+            string sql = @"
+                Insert Into NoteComments (BoardId, Name, Opinion, Password)
+                Values(@BoardId, @Name, @Opinion, @Password);
+                Update Notes Set CommentCount = CommentCount + 1 
+                Where Id = @BoardId
+            ";
+
+            con.Execute(sql, parameters, commandType: CommandType.Text);
+        }
+
+        /// <summary>
+        /// 특정 게시물에 해당하는 댓글 리스트
+        /// </summary>
+        public List<NoteComment> GetNoteComments(int boardId)
+        {
+            return con.Query<NoteComment>(
+                "Select * From NoteComments Where BoardId = @BoardId"
+                , new { BoardId = boardId }
+                , commandType: CommandType.Text).ToList();
+        }
+
+        /// <summary>
+        /// 특정 게시물의 특정 Id에 해당하는 댓글 카운트
+        /// </summary>
+        public int GetCountBy(int boardId, int id, string password)
+        {
+            return con.Query<int>(@"Select Count(*) From NoteComments 
+                Where BoardId = @BoardId And Id = @Id And Password = @Password"
+                , new { BoardId = boardId, Id = id, Password = password }
+                , commandType: CommandType.Text).SingleOrDefault();
+        }
+
+        /// <summary>
+        /// 댓글 삭제 
+        /// </summary>
+        public int DeleteNoteComment(int boardId, int id, string password)
+        {
+            return con.Execute(@"Delete NoteComments 
+                Where BoardId = @BoardId And Id = @Id And Password = @Password; 
+                Update Notes Set CommentCount = CommentCount - 1 
+                Where Id = @BoardId"
+                , new { BoardId = boardId, Id = id, Password = password }
+                , commandType: CommandType.Text);
+        }
+       
+        /// <summary>
+        /// 최근 댓글 리스트 전체
+        /// </summary>
+        public List<NoteComment> GetRecentComments()
+        {
+            string sql = @"SELECT TOP 3 Id, BoardId, Opinion, PostDate 
+                FROM NoteComments Order By Id Desc";
+            return con.Query<NoteComment>(sql).ToList();
+        }
+        #endregion
     }
 }
