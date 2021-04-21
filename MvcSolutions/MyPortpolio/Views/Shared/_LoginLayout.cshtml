@@ -7,14 +7,12 @@
 	@Html.Partial("NavPage.cshtml")
 	<div class="page-header header-filter" style="background-image: url('../assets/img/bg7.jpg'); background-size: cover; background-position: top center;">
 		<div class="container">
-			<div class="row">
-				<div class="Col">
-					@RenderBody()
-				</div>
-			</div>
+
+			@RenderBody()
 		</div>
-		@Html.Partial("FooterPage.cshtml")
-		@await RenderSectionAsync("Scripts", required: false)
+	</div>
+	@Html.Partial("FooterPage.cshtml")
+	@await RenderSectionAsync("Scripts", required: false)
 </body>
 
 </html>

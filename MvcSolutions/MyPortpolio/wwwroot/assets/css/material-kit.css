@@ -32,8 +32,9 @@
 }
 
 html {
-  font-family: NanumGothic,sans-serif;
+  font-family: NanumGothic;
   line-height: 1.15;
+  -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
   -ms-overflow-style: scrollbar;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
@@ -58,14 +59,14 @@ section {
 }
 
 body {
-  margin: 0;
-  font-family: NanumGothic,"Roboto", "Helvetica", "Arial", sans-serif;
-  font-size: 1rem;
-  font-weight: 400;
-  line-height: 1.5;
-  color: #212529;
-  text-align: left;
-  background-color: #fafafa;
+    margin: 0;
+    font-family: NanumGothic;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    text-align: left;
+    background-color: #fafafa;
 }
 
 [tabindex="-1"]:focus {
@@ -194,7 +195,7 @@ pre,
 code,
 kbd,
 samp {
-  font-family: monospace, monospace;
+  font-family: NanumGothic;
   font-size: 1em;
 }
 
@@ -452,7 +453,7 @@ template {
 }
 
 html {
-  font-family: sans-serif;
+  font-family: NanumGothic;
   line-height: 1.15;
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
@@ -480,7 +481,7 @@ section {
 
 body {
   margin: 0;
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-family: NanumGothic;
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
@@ -615,7 +616,7 @@ pre,
 code,
 kbd,
 samp {
-  font-family: monospace, monospace;
+  font-family: NanumGothic;
   font-size: 1em;
 }
 
@@ -951,7 +952,7 @@ code,
 kbd,
 pre,
 samp {
-  font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-family: NanumGothic;
 }
 
 code {
@@ -5893,7 +5894,7 @@ button.close {
   z-index: 1070;
   display: block;
   margin: 0;
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-family: NanumGothic;
   font-style: normal;
   font-weight: 400;
   line-height: 1.5;
@@ -6018,7 +6019,7 @@ button.close {
   z-index: 1060;
   display: block;
   max-width: 276px;
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-family: NanumGothic;
   font-style: normal;
   font-weight: 400;
   line-height: 1.5;
@@ -11598,7 +11599,7 @@ legend {
 }
 
 .serif-font {
-  font-family: "Roboto Slab", "Times New Roman", serif;
+    font-family: NanumGothic;
 }
 
 * {
@@ -15363,9 +15364,9 @@ h6,
 .h2,
 .h3,
 .h4 {
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
-  font-weight: 300;
-  line-height: 1.5em;
+    font-family: NanumGothic;
+    font-weight: 300;
+    line-height: 1.5em;
 }
 
 h1,
@@ -15453,8 +15454,8 @@ small,
 .footer-big h5,
 .footer-big h4,
 .media .media-heading {
-  font-weight: 700;
-  font-family: "Roboto Slab", "Times New Roman", serif;
+    font-weight: 700;
+    font-family: NanumGothic;
 }
 
 .title,
