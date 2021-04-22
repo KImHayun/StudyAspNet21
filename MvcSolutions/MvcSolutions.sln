@@ -7,13 +7,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BasicMvcWebApp", "BasicMvcW
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DbWebApp", "DbWebApp\DbWebApp.csproj", "{CC83388A-10CB-46D5-B6AA-2A2E08A10E88}"
 EndProject
-Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "MvcWebLab.Database", "MvcWebLab.Database\MvcWebLab.Database.sqlproj", "{9EAB7B4A-BABA-44C9-ADF2-B7F1F7C2817F}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ToDoListWebApp", "ToDoListWebApp\ToDoListWebApp.csproj", "{EDBD9D4D-6BDD-4D90-BB2D-34E30F3058A9}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RestApiTestApp", "RestApiTestApp\RestApiTestApp.csproj", "{4F2389F4-6CF0-4140-8D9D-878F0BED9CED}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyPortpolio", "MyPortpolio\MyPortpolio.csproj", "{A8933C1B-5359-4375-954D-29FC74A23058}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyPortpolio", "MyPortpolio\MyPortpolio.csproj", "{A8933C1B-5359-4375-954D-29FC74A23058}"
+EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "TotalDatabase", "TotalDatabase\TotalDatabase.sqlproj", "{7B7D7DB1-F286-4AF8-A7DD-6850AC68E967}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,12 +29,6 @@ Global
 		{CC83388A-10CB-46D5-B6AA-2A2E08A10E88}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CC83388A-10CB-46D5-B6AA-2A2E08A10E88}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CC83388A-10CB-46D5-B6AA-2A2E08A10E88}.Release|Any CPU.Build.0 = Release|Any CPU
-		{9EAB7B4A-BABA-44C9-ADF2-B7F1F7C2817F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9EAB7B4A-BABA-44C9-ADF2-B7F1F7C2817F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9EAB7B4A-BABA-44C9-ADF2-B7F1F7C2817F}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
-		{9EAB7B4A-BABA-44C9-ADF2-B7F1F7C2817F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9EAB7B4A-BABA-44C9-ADF2-B7F1F7C2817F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{9EAB7B4A-BABA-44C9-ADF2-B7F1F7C2817F}.Release|Any CPU.Deploy.0 = Release|Any CPU
 		{EDBD9D4D-6BDD-4D90-BB2D-34E30F3058A9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{EDBD9D4D-6BDD-4D90-BB2D-34E30F3058A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EDBD9D4D-6BDD-4D90-BB2D-34E30F3058A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -47,6 +41,12 @@ Global
 		{A8933C1B-5359-4375-954D-29FC74A23058}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A8933C1B-5359-4375-954D-29FC74A23058}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A8933C1B-5359-4375-954D-29FC74A23058}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7B7D7DB1-F286-4AF8-A7DD-6850AC68E967}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7B7D7DB1-F286-4AF8-A7DD-6850AC68E967}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7B7D7DB1-F286-4AF8-A7DD-6850AC68E967}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{7B7D7DB1-F286-4AF8-A7DD-6850AC68E967}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7B7D7DB1-F286-4AF8-A7DD-6850AC68E967}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7B7D7DB1-F286-4AF8-A7DD-6850AC68E967}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

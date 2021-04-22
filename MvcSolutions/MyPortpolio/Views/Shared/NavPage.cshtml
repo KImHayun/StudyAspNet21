@@ -1,13 +1,12 @@
 ﻿@using Microsoft.AspNetCore.Http
 @inject IHttpContextAccessor hca
 
-
 <nav class="navbar navbar-transparent navbar-color-on-scroll fixed-top navbar-expand-lg" color-on-scroll="100" id="sectionsNav">
 	<div class="container">
 		<div class="navbar-translate">
 			<a class="navbar-brand" href="~/Home/Index">
-				Hayun's Portpolie
-			</a> <!--상단 글자-->
+				Hayun's Profile
+			</a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="sr-only">Toggle navigation</span>
 				<span class="navbar-toggler-icon"></span>
@@ -19,7 +18,6 @@
 			<ul class="navbar-nav ml-auto">
 				<li class="nav-item">
 					<a class="nav-link" asp-area="" asp-controller="Home" asp-action="Profile">
-						<!--asp-action Profile로 바꾸기!-->
 						<i class="material-icons">assignment_ind</i> Profile
 					</a>
 				</li>
@@ -35,7 +33,7 @@
 				</li>
 				<li class="nav-item">
 					<a class="nav-link" asp-area="" asp-controller="Board" asp-action="Index">
-						<i class="material-icons">dashboard_customized</i> Board
+						<i class="material-icons">dashboard_customize</i> Board
 					</a>
 				</li>
 				@if (string.IsNullOrEmpty(hca.HttpContext.Session.GetString("UserEmail")))
@@ -47,34 +45,18 @@
 					</li>
 				}
 				else
-			{
-			<li class="nav-item">
-				<a class="nav-link" asp-area="" asp-controller="Account" asp-action="Logout">
-					<i class="material-icons">lock</i> Logout  
-				</a>
-			</li>
-			}
-
-				@*<li class="nav-item">
-			<partial name="_Login" />
-		</li>*@
-
-
-				@*<li class="nav-item">
-			<a class="nav-link" rel="tooltip" title="" data-placement="bottom" href="https://twitter.com/CreativeTim" target="_blank" data-original-title="Follow us on Twitter" rel="nofollow">
-				<i class="fa fa-twitter"></i>
-			</a>
-		</li>
-		<li class="nav-item">
-			<a class="nav-link" rel="tooltip" title="" data-placement="bottom" href="https://www.facebook.com/CreativeTim" target="_blank" data-original-title="Like us on Facebook" rel="nofollow">
-				<i class="fa fa-facebook-square"></i>
-			</a>
-		</li>
-		<li class="nav-item">
-			<a class="nav-link" rel="tooltip" title="" data-placement="bottom" href="https://www.instagram.com/CreativeTimOfficial" target="_blank" data-original-title="Follow us on Instagram" rel="nofollow">
-				<i class="fa fa-instagram"></i>
-			</a>
-		</li>*@
+				{
+					<li class="nav-item">
+						<a class="nav-link" asp-area="" asp-controller="Account" asp-action="Logout">
+							<i class="material-icons">lock</i> Logout @*(@hca.HttpContext.Session.GetString("UserEmail"))*@
+						</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" asp-area="" asp-controller="Manage" asp-action="Index">
+							<i class="material-icons">settings</i> Admin
+						</a>
+					</li>
+				}
 			</ul>
 		</div>
 	</div>
